@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Login to your account</h1>
+            <p class="subtitle">Enter your credentials to login to your account</p>
+
+            <!-- Login Form -->
+            <form id="loginForm">
+                <!-- Email Input -->
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input 
+                        type="email" 
+                        id="email" 
+                        name="email" 
+                        placeholder="Enter your email"
+                    >
+                    <p class="error-message" id="emailError"></p>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input 
+                        type="password" 
+                        id="password" 
+                        name="password" 
+                        placeholder="Enter your password"
+                    >
+                    <p class="error-message" id="passwordError"></p>
+                </div>
+
+                <!-- Login Button -->
+                <button type="submit" class="btn-primary">Login</button>
+
+                <!-- Registration Link -->
+                <p class="register-link">
+                    Don't have an account? 
+                    <a href="register.html">Create an account</a>
+                </p>
+            </form>
+
+            <!-- Login Success Message  -->
+            <div id="loginSuccess" class="success-message" style="display: none;">
+                <h2>Login Successful!</h2>
+                <p>Welcome back to your account.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+</html>

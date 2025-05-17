@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Hanken Grotesk', sans-serif;
+}
+
+body {
+    background-color: white;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Container Styles */
+.container {
+    width: 100%;
+    max-width: 470px;
+    padding: 0 20px;
+}
+
+.form-container {
+    background-color: white;
+    padding: 32px;
+}
+
+/* Typography */
+h1 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.subtitle {
+    color: #64748b;
+    font-size: 16px;
+    margin-bottom: 24px;
+    text-align: center;
+
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 16px;
+    transition: margin-bottom 0.3s ease;
+}
+
+label {
+    display: block;
+    font-size: 16px;
+    font-weight: 500;
+    color: #000000;
+    margin-bottom: 6px;
+}
+
+input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.2s;
+}
+
+input:focus {
+    outline: none;
+    border-color: #3b82f6;
+}
+
+/* Checkbox Styles */
+.checkbox-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.checkbox-container input[type="checkbox"] {
+    width: auto;
+    margin-top: 3px;
+}
+
+.checkbox-label {
+    display: inline;
+    font-size: 14px;
+    color: #64748b;
+}
+
+/* Error Styles */
+input.error {
+    border-color: #ef4444;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 12px;
+    margin-top: 4px;
+    min-height: 0;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.error-message:not(:empty) {
+    min-height: 16px;
+    max-height: 50px;
+    opacity: 1;
+    margin-bottom: 4px;
+}
+
+/* Expand form group when error is shown */
+.form-group input.error + .error-message:not(:empty),
+.form-group input.error ~ .error-message:not(:empty) {
+    margin-bottom: 4px;
+}
+
+.form-group input.error {
+    border-color: #ef4444;
+}
+
+small {
+    display: block;
+    font-size: 12px;
+    color: #878787;
+    margin-top: 4px;
+}
+
+/* Button Styles */
+.btn-primary {
+    width: 100%;
+    background-color: #000000;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #3a3a3a;
+}
+
+/* Links */
+.register-link, .login-link {
+    text-align: center;
+    font-size: 14px;
+    color: #64748b;
+}
+
+a {
+    color: #FF954A;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Success Message */
+.success-message {
+    text-align: center;
+    padding: 20px;
+}
+
+.success-message h2 {
+    color: #10b981;
+    margin-bottom: 8px;
+}
+
+.success-message p {
+    color: #64748b;
+}
