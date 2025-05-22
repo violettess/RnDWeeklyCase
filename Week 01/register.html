@@ -93,3 +93,98 @@
     <script src="register.js"></script>
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Create your account</h1>
+            <p class="subtitle">Let’s get started with your 30 days free trial</p>
+
+            <!-- Registration Form -->
+            <form id="registerForm">
+                <!-- Name Input -->
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input 
+                        type="text" 
+                        id="name" 
+                        name="name" 
+                        placeholder="Enter your name"
+                    >
+                    <p class="error-message" id="nameError"></p>
+                </div>
+
+                <!-- Email Input -->
+                <div class="form-group">
+                    <label for="regEmail">Email</label>
+                    <input 
+                        type="text" 
+                        id="regEmail" 
+                        name="email" 
+                        placeholder="Enter your email"
+                    >
+                    <p class="error-message" id="regEmailError"></p>
+                </div>
+
+                <!-- Password Input -->
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input 
+                        type="password" 
+                        id="regPassword" 
+                        name="password" 
+                        placeholder="Create a password"
+                    >
+                    <p class="error-message" id="regPasswordError"></p>
+                    <small>Password needs to have a minimal of 8 characters, 1 uppercase and 1 symbol</small>
+                </div>
+
+                <!-- Retype Password -->
+                <div class="form-group">
+                    <label for="retypePassword">Retype Password</label>
+                    <input 
+                        type="password" 
+                        id="retypePassword" 
+                        name="retypePassword" 
+                        placeholder="Retype your password"
+                    >
+                    <p class="error-message" id="retypePasswordError"></p>
+                </div>
+
+                <!-- Terms and Conditions Checkbox -->
+                <div class="form-group checkbox-group">
+                    <div class="checkbox-container">
+                        <input 
+                            type="checkbox" 
+                            id="agreeTerms" 
+                            name="agreeTerms"
+                        >
+                        <label for="agreeTerms" class="checkbox-label">
+                            I agree to all terms, privacy policy and fees
+                        </label>
+                    </div>
+                    <p class="error-message" id="termsError"></p>
+                </div>
+                
+                <!-- Register Button -->
+                <button type="submit" class="btn-primary">Sign Up</button>
+
+                <!-- Login Link -->
+                <p class="login-link">
+                    Already have an account? 
+                    <a href="index.html">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>
