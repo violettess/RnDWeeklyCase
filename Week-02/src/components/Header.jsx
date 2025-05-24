@@ -4,14 +4,12 @@ import '../App.css';
 const Header = () => {
   return (
     <div className="header">
-      {/* Badge */}
       <div className="badge-wrapper">
         <span className="badge">
           From Beginner to Advanced Questions
         </span>
       </div>
-      
-      {/* Title with React Logo */}
+
       <div className="title-wrapper">
         <div className="logo">
           <svg 
@@ -32,7 +30,6 @@ const Header = () => {
         </h1>
       </div>
 
-      {/* Subtitle */}
       <p className="subtitle">
         Test your react knowledge by answering the flashcards below
       </p>

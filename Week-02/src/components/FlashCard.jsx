@@ -1,5 +1,5 @@
 import React from 'react';
-import '../App.css'; // go one level up to access App.css
+import '../App.css';
 
 const FlashCard = ({ question, answer, difficulty, number, isFlipped, onFlip }) => {
   const getDifficultyClass = (difficulty) => {

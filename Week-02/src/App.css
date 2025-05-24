@@ -5,7 +5,6 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  /* overflow: hidden; */
 }
 
 #root {
@@ -28,16 +27,6 @@ html, body {
   justify-content: center;
 }
 
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
@@ -54,11 +43,11 @@ html, body {
 
 .badge {
   padding: 0.5rem 1rem;
-  background-color: #1f2937; /* gray-800 */
-  color: #d1d5db;            /* gray-300 */
-  border-radius: 9999px;     /* fully rounded */
-  font-size: 0.875rem;       /* text-sm */
-  border: 1px solid #374151; /* gray-700 */
+  background-color: #1f2937; 
+  color: #d1d5db;    
+  border-radius: 9999px; 
+  font-size: 0.875rem;       
+  border: 1px solid #374151; 
 }
 
 .title-wrapper {
@@ -75,53 +64,23 @@ html, body {
 .logo-icon {
   width: 3rem;
   height: 3rem;
-  color: #22d3ee; /* cyan-400 */
+  color: #22d3ee; 
 }
 
 .title {
-  font-size: 48px; /* text-4xl */
+  font-size: 48px; 
   font-weight: bold;
   color: white;
 }
 
-@media (min-width: 768px) {
-  .title {
-    font-size: 3rem; /* md:text-5xl */
-  }
-}
-
 .subtitle {
-  color: #9ca3af; /* gray-400 */
-  font-size: 1.125rem; /* text-lg */
-}
-
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  color: #9ca3af; 
+  font-size: 1.125rem;
 }
 
 .flashcard {
-  background-color: #252525; /* gray-800 */
-  border: 1px solid #414141; /* gray-700 */
+  background-color: #252525;
+  border: 1px solid #414141;
   border-radius: 1rem;
   padding: 1.5rem;
   cursor: pointer;
@@ -134,11 +93,11 @@ html, body {
 }
 
 .flashcard:hover {
-  border: 1px solid #FFCE97; /* gray-700 */
+  border: 1px solid #FFCE97;
 }
 
 .flashcard-number {
-  color: #9ca3af; /* gray-400 */
+  color: #9ca3af;
   font-size: 0.875rem;
   margin-bottom: 0.5rem;
 }
@@ -152,7 +111,7 @@ html, body {
 
 .flashcard-question.back {
   font-size: 1.2rem;
-  text-align: left; /* ✅ Left-align only when on the back */
+  text-align: left;
 }
 
 .flashcard-answer {
@@ -199,38 +158,38 @@ html, body {
 .flashcard-answer-header {
   display: flex;
   justify-content: space-between;
-  color: #9ca3af; /* gray-400 */
+  color: #9ca3af; 
   font-size: 0.875rem;
   margin-bottom: 1rem;
   align-items: center;
 }
 
 .flashcard-answer {
-  color: #d1d5db; /* gray-300 */
+  color: #d1d5db; 
   line-height: 1.625;
 }
 
 .flashcard-grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr); /* 1 column by default */
-  gap: 3rem; /* same as gap-6 */
+  grid-template-columns: repeat(1, 1fr);
+  gap: 3rem; 
   margin-top: 2rem;
 }
 
 @media (min-width: 768px) {
   .flashcard-grid {
-    grid-template-columns: repeat(2, 1fr); /* md:grid-cols-2 */
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
 @media (min-width: 1024px) {
   .flashcard-grid {
-    grid-template-columns: repeat(3, 1fr); /* lg:grid-cols-3 */
+    grid-template-columns: repeat(3, 1fr); 
   }
 }
 
 .main-wrapper {
-  max-width: 1280px; /* equivalent to max-w-4xl or customize here */
-  margin: 0 auto;     /* centers the content horizontally */
-  padding: 0 1.5rem;  /* same as px-6 */
+  max-width: 1280px;
+  margin: 0 auto;     
+  padding: 0 1.5rem; 
 }
