@@ -2,43 +2,38 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import FlashCard from './components/FlashCard';
 import { flashcardsData } from './data/flashcardsData';
+import './App.css';
 
-const App = () => {
-  const [flippedCards, setFlippedCards] = useState(new Set());
+function App() {
+  const [flippedCards, setFlippedCards] = useState({});
 
-  const handleCardFlip = (index) => {
-    setFlippedCards(prev => {
-      const newSet = new Set(prev);
-      if (newSet.has(index)) {
-        newSet.delete(index);
-      } else {
-        newSet.add(index);
-      }
-      return newSet;
-    });
+  const handleCardFlip = (cardId) => {
+    setFlippedCards(prev => ({
+      ...prev,
+      [cardId]: !prev[cardId]
+    }));
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 py-8 px-4">
-      <div className="max-w-6xl mx-auto">
+  <div className="main-container">
+    <div className="content-container">
         <Header />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {flashcardsData.map((card, index) => (
+        <div className="flashcard-grid">
+          {flashcardsData.map((card) => (
             <FlashCard
-              key={index}
+              key={card.id}
               question={card.question}
               answer={card.answer}
               difficulty={card.difficulty}
-              number={index + 1}
-              isFlipped={flippedCards.has(index)}
-              onFlip={() => handleCardFlip(index)}
+              number={card.id}
+              isFlipped={flippedCards[card.id] || false}
+              onFlip={() => handleCardFlip(card.id)}
             />
           ))}
         </div>
       </div>
     </div>
   );
-};
+}
 
 export default App;

@@ -1,55 +1,54 @@
 import React from 'react';
+import '../App.css'; // go one level up to access App.css
 
 const FlashCard = ({ question, answer, difficulty, number, isFlipped, onFlip }) => {
-  const getDifficultyColor = (difficulty) => {
+  const getDifficultyClass = (difficulty) => {
     switch (difficulty.toLowerCase()) {
       case 'easy':
-        return 'bg-cyan-500 text-cyan-100';
+        return 'difficulty-easy';
       case 'medium':
-        return 'bg-yellow-500 text-yellow-100';
+        return 'difficulty-medium';
       case 'hard':
-        return 'bg-red-500 text-red-100';
+        return 'difficulty-hard';
       default:
-        return 'bg-gray-500 text-gray-100';
+        return 'difficulty-default';
     }
   };
 
   return (
     <div 
-      className="bg-gray-800 rounded-lg p-6 border border-gray-700 cursor-pointer hover:bg-gray-750 transition-colors duration-200 min-h-64 flex flex-col justify-between"
+      className="flashcard"
       onClick={onFlip}
     >
       {!isFlipped ? (
-        // Question side
         <>
           <div>
-            <div className="text-gray-400 text-sm mb-4">
+            <div className="flashcard-number">
               Question {number}
             </div>
-            <h3 className="text-white text-xl font-medium leading-relaxed">
+            <h3 className="flashcard-question">
               {question}
             </h3>
           </div>
-          <div className="mt-4">
-            <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDifficultyColor(difficulty)}`}>
+          <div className="flashcard-difficulty-wrapper">
+            <span className={`flashcard-difficulty ${getDifficultyClass(difficulty)}`}>
               {difficulty}
             </span>
           </div>
         </>
       ) : (
-        // Answer side
         <>
           <div>
-            <div className="text-gray-400 text-sm mb-4 flex items-center justify-between">
+            <div className="flashcard-answer-header back">
               <span>Answer :</span>
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${getDifficultyColor(difficulty)}`}>
+              <span className={`flashcard-difficulty ${getDifficultyClass(difficulty)}`}>
                 {difficulty}
               </span>
             </div>
-            <h3 className="text-white text-xl font-medium mb-4">
-              {question.length > 50 ? question.substring(0, 50) + "..." : question}
+            <h3 className="flashcard-question back">
+              {question}
             </h3>
-            <p className="text-gray-300 leading-relaxed">
+            <p className="flashcard-answer back">
               {answer}
             </p>
           </div>
