@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { Calendar } from 'lucide-react';
+import type { Task } from '../types/Task';
 
 interface TaskFormProps {
-  onAddTask: (title: string, dueDate: string) => void;
+  onAddTask: (task: Omit<Task, 'id' | 'createdAt'>) => void;
 }
 
 const TaskForm: React.FC<TaskFormProps> = ({ onAddTask }) => {
@@ -10,45 +12,58 @@ const TaskForm: React.FC<TaskFormProps> = ({ onAddTask }) => {
 
   const handleSubmit = () => {
     if (title.trim() && dueDate) {
-      onAddTask(title.trim(), dueDate);
+      onAddTask({
+        title: title.trim(),
+        dueDate,
+        completed: false
+      });
       setTitle('');
       setDueDate('');
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  };
+
   return (
-    <div className="bg-white rounded-lg p-6 shadow-sm border mb-6">
-      <h2 className="text-xl font-semibold text-gray-800 mb-4">Add New Task</h2>
-      <div className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Task Title
+    <div className="task-form">
+      <div className="form-grid">
+        <div className="form-field">
+          <label className="form-label">
+            What do you want to do?
           </label>
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter task title..."
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+            onKeyPress={handleKeyPress}
+            placeholder="Study for mid exams..."
+            className="form-input"
           />
         </div>
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">
-            Due Date
+        <div className="form-field">
+          <label className="form-label">
+            When should it be done?
           </label>
-          <input
-            type="date"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-            className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          />
+          <div className="date-input-container">
+            <input
+              type="date"
+              value={dueDate}
+              onChange={(e) => setDueDate(e.target.value)}
+              className="form-input date-input"
+            />
+            <Calendar className="calendar-icon" />
+          </div>
         </div>
         <button
           onClick={handleSubmit}
-          className="flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors font-medium"
+          type="button"
+          className="create-button"
         >
-          <span>+</span>
-          Create Task
+          Create
         </button>
       </div>
     </div>

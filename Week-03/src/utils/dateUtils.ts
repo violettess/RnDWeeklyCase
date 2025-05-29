@@ -1,37 +1,43 @@
-export const formatDate = (dateString: string): string => {
-  const date = new Date(dateString);
+export const formatDate = (date: Date): string => {
+  return date.toLocaleDateString('en-US', {
+    weekday: 'long',
+    day: 'numeric',
+    month: 'long',
+    year: 'numeric'
+  });
+};
+
+export const getDateIndicator = (dueDate: string): { text: string; color: string } => {
   const today = new Date();
-  const tomorrow = new Date(today);
-  tomorrow.setDate(today.getDate() + 1);
+  const due = new Date(dueDate);
+  const diffTime = due.getTime() - today.getTime();
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  const compareDate = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-  const compareToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  const compareTomorrow = new Date(tomorrow.getFullYear(), tomorrow.getMonth(), tomorrow.getDate());
-
-  if (compareDate.getTime() === compareToday.getTime()) {
-    return 'Today';
-  } else if (compareDate.getTime() === compareTomorrow.getTime()) {
-    return 'Tomorrow';
+  if (diffDays === 0) {
+    return { text: 'Today', color: 'bg-blue-100 text-blue-600' };
+  } else if (diffDays === 1) {
+    return { text: 'Tomorrow', color: 'bg-orange-100 text-orange-600' };
+  } else if (diffDays > 1 && diffDays <= 7) {
+    return { 
+      text: due.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric', month: 'short' }),
+      color: 'bg-green-100 text-green-600'
+    };
   } else {
-    return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
+    return { 
+      text: due.toLocaleDateString('en-US', { day: 'numeric', month: 'short' }),
+      color: 'bg-gray-100 text-gray-600'
+    };
   }
 };
 
-export const isTaskExpired = (dueDate: string): boolean => {
-  const taskDate = new Date(dueDate);
+export const isToday = (dateString: string): boolean => {
   const today = new Date();
-  
-  const compareTaskDate = new Date(taskDate.getFullYear(), taskDate.getMonth(), taskDate.getDate());
-  const compareToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
-  
-  return compareTaskDate.getTime() < compareToday.getTime();
+  const date = new Date(dateString);
+  return today.toDateString() === date.toDateString();
 };
 
-export const isToday = (dateString: string): boolean => {
-  const date = new Date(dateString);
+export const isOverdue = (dateString: string): boolean => {
   const today = new Date();
-  
-  return date.getFullYear() === today.getFullYear() &&
-         date.getMonth() === today.getMonth() &&
-         date.getDate() === today.getDate();
+  const date = new Date(dateString);
+  return date < today && !isToday(dateString);
 };
